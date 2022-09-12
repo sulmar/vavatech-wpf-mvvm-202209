@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="MenuBagroundBrush" Color="#272537" />
+    <SolidColorBrush x:Key="MenuForegroundBrush" Color="White" />
+
+    <Style TargetType="Menu">
+        <Setter Property="Background" Value="{StaticResource MenuBagroundBrush}" />
+    </Style>
+
+    <Style x:Key="DefaultMenuItem" TargetType="MenuItem">
+        <Setter Property="Foreground" Value="{StaticResource MenuForegroundBrush}" />
+        <Setter Property="FontStyle" Value="Normal" />
+    </Style>
+
+    <Style TargetType="MenuItem" BasedOn="{StaticResource DefaultMenuItem}" />
+
+    <Style x:Key="HelpMenuItem" TargetType="MenuItem"
+               BasedOn="{StaticResource DefaultMenuItem}">
+        <Setter Property="Foreground" Value="Gray" />
+    </Style>
+
+
+</ResourceDictionary>

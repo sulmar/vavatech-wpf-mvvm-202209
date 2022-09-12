@@ -1,0 +1,56 @@
+﻿<p:Window x:Class="Fundamentals.MainWindow"
+        xmlns:p="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fundamentals"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+        <p:Window.Resources>
+            <p:Style x:Key="MyStyle">
+               
+            </p:Style>
+        </p:Window.Resources>
+
+    
+    <p:Grid>
+        
+        <!-- Deklaracja za pomocą atrybutów z atrybutem domyślnym -->
+        <!--<Button Width="200" Height="100" Background="Blue">Hello World!</Button>-->
+        
+
+        <!-- Deklaracja za pomocą atrybutów -->        
+        <!-- 
+        <Button Width="200" Height="100" Content="Hello World!" />
+        -->
+
+        <!-- Deklaracja za pomocą elementów -->
+        <p:Button Name="MyButton">
+            <p:Button.Width>200</p:Button.Width>
+            <p:Button.Height>100</p:Button.Height>
+            <p:Button.Content>Hello World!</p:Button.Content>
+
+            <p:Button.Background>
+                
+                <!--Blue-->
+                
+                <!--<SolidColorBrush Color="Blue" />-->
+                
+                <!--<LinearGradientBrush>
+                    <GradientStop Color="White" Offset="0" />
+                    <GradientStop Color="Blue" Offset="0.5" />
+                    <GradientStop Color="Green" Offset="1" />
+                </LinearGradientBrush>-->
+
+                <p:RadialGradientBrush>
+                    <p:GradientStop Color="White" Offset="0"/>
+                    <p:GradientStop Color="Blue" Offset="0.5"/>
+                    <p:GradientStop Color="Green" Offset="1" />
+                </p:RadialGradientBrush>
+                
+            </p:Button.Background>
+        </p:Button>
+
+    </p:Grid>
+</p:Window>
