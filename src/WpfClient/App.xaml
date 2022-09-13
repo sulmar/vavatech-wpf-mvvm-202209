@@ -5,7 +5,13 @@
              StartupUri="Views/ShellView.xaml">
     <Application.Resources>
 
-        <ResourceDictionary Source="Resources/DarkStyles.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles.xaml" />
+                <ResourceDictionary Source="Resources/DarkStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
 
+        
     </Application.Resources>
 </Application>

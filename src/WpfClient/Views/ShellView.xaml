@@ -69,7 +69,9 @@
             </Menu>
 
             <!-- Header -->
-            <StackPanel DockPanel.Dock="Top"
+            <StackPanel
+                        Visibility="Collapsed"
+                        DockPanel.Dock="Top"
                         Orientation="Horizontal"
                         Height="100" >
 
@@ -80,7 +82,7 @@
 
             <!-- Content -->
 
-            <Frame Source="HomeView.xaml" />
+            <Frame Source="CounterView.xaml" />
 
 
 

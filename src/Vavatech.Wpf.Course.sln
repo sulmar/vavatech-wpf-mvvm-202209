@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fundamentals", "Fundamentals\Fundamentals.csproj", "{D1EEA8C3-0DEF-4A64-8C0F-DDA3EB517209}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fundamentals", "Fundamentals\Fundamentals.csproj", "{D1EEA8C3-0DEF-4A64-8C0F-DDA3EB517209}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfClient", "WpfClient\WpfClient.csproj", "{65671243-4515-4704-8567-FB91726A0C1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfClient", "WpfClient\WpfClient.csproj", "{65671243-4515-4704-8567-FB91726A0C1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{650400FA-A427-4086-875A-10B9C90F795D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{65671243-4515-4704-8567-FB91726A0C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65671243-4515-4704-8567-FB91726A0C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65671243-4515-4704-8567-FB91726A0C1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{650400FA-A427-4086-875A-10B9C90F795D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{650400FA-A427-4086-875A-10B9C90F795D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{650400FA-A427-4086-875A-10B9C90F795D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{650400FA-A427-4086-875A-10B9C90F795D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
