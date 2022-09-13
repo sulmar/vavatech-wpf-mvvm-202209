@@ -14,7 +14,7 @@ namespace ViewModels
         public ICollection<Customer> Customers { get; set; }
 
         public CustomersViewModel()
-            : this(new InMemoryCustomerRepository())
+            : this(new FakeCustomerRepository())
         {
 
         }
