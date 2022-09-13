@@ -34,11 +34,7 @@ namespace WpfClient.Views
             // this.DataContext = new vm.CounterViewModel();
         }
 
-        private void IncrementCount(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+       
 
         /* 
          
