@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Repositories
 {
-    public interface ICustomerRepository
+
+    public interface ICustomerRepository : IEntityRepository<Customer>
     {
-        ICollection<Customer> Get();
+        
     }
+
+
 }

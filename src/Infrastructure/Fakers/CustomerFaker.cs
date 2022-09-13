@@ -18,6 +18,6 @@ namespace Infrastructure.Fakers
             RuleFor(p => p.LastName, f => f.Person.LastName);
             RuleFor(p => p.Avatar, f => f.Person.Avatar);
             RuleFor(p => p.Phone, f => f.Phone.PhoneNumber());
-        }    
+        }
     }
 }

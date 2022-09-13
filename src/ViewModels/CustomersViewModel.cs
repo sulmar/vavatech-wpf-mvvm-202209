@@ -23,6 +23,5 @@ namespace ViewModels
         {
             Customers = customerRepository.Get();
         }
-
     }
 }

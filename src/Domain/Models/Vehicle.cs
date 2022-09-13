@@ -1,7 +1,7 @@
 ﻿namespace Domain.Models
 {
-    public abstract class Base
+    public class Vehicle : Base
     {
-       
+
     }
 }

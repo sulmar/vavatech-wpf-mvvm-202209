@@ -1,9 +1,9 @@
 ﻿namespace Domain.Models
 {
 
-    public class Customer : Base 
-    {
-        public int Id { get; set; }
+
+    public class Customer : BaseEntity
+    {        
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Avatar { get; set; }
