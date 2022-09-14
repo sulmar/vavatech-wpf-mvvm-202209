@@ -30,11 +30,11 @@ namespace ViewModels
         public CustomersViewModel()
             : this(new FakeCustomerRepository())
         {
-            SkillLevelUpCommand = new DelegateCommand(SkillLevelUp);
         }
 
         public CustomersViewModel(ICustomerRepository customerRepository)
         {
+            SkillLevelUpCommand = new DelegateCommand(SkillLevelUp);
             Customers = customerRepository.Get();
         }
 
