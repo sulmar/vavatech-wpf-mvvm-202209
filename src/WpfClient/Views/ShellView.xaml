@@ -32,8 +32,17 @@
                    
                 </Menu.Resources>
 
-                <MenuItem Header="Home"  />
-                <MenuItem Header="Dashboard"  />
+                <MenuItem Header="Home">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource HomeImage}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Dashboard" >
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource DashboardImage}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                
                 <MenuItem Header="Counters"   />
                 <MenuItem Header="Products" />
                 <MenuItem Header="Customers" />
@@ -47,21 +56,55 @@
                 Style="{StaticResource SideBarMenuStyle}"
                 DockPanel.Dock="Left">
 
-                <MenuItem Header="Home" />
+                <MenuItem Header="Home" Style="{StaticResource SideBarMenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource HomeImage}" />
+                    </MenuItem.Icon>
+                </MenuItem>
 
-                <MenuItem Header="Dashboard" />
+                <MenuItem Header="Dashboard"  Style="{StaticResource SideBarMenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource DashboardImage}" />
+                    </MenuItem.Icon>
+                </MenuItem>
 
-                <MenuItem Header="Counters" />
+                <MenuItem Header="Counters"  Style="{StaticResource SideBarMenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource CounterImage}" />
+                    </MenuItem.Icon>
+                </MenuItem>
 
-                <MenuItem Header="Products" />
+                <MenuItem Header="Products"  Style="{StaticResource SideBarMenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource ProductsImage}" />
+                    </MenuItem.Icon>
+                </MenuItem>
 
 
-                <MenuItem Header="Customers" />
+                <MenuItem Header="Customers"  Style="{StaticResource SideBarMenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource ProductsImage}" />
+                    </MenuItem.Icon>
+                </MenuItem>
 
-                <MenuItem Header="Settings" />
+                <MenuItem Header="Settings"  Style="{StaticResource SideBarMenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource SettingsImage}" />
+                    </MenuItem.Icon>
+                </MenuItem>
 
-                <MenuItem Header="Help" Style="{StaticResource HelpMenuItem}"
-                          />
+                <MenuItem Header="Help"  Style="{StaticResource SideBarMenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource HelpImage}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                         
+
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
 
 
 

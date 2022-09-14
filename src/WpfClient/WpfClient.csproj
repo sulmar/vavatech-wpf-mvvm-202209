@@ -8,6 +8,57 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Add.png" />
+    <None Remove="Assets\Customers.png" />
+    <None Remove="Assets\Documents.png" />
+    <None Remove="Assets\Home.png" />
+    <None Remove="Assets\Maps.png" />
+    <None Remove="Assets\Money.png" />
+    <None Remove="Assets\Orders.png" />
+    <None Remove="Assets\Products.png" />
+    <None Remove="Assets\Services.png" />
+    <None Remove="Assets\Settings.png" />
+    <None Remove="Assets\Tasks.png" />
+    <None Remove="Assets\Users.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Customers.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Documents.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Maps.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Money.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Orders.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Products.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Services.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Settings.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tasks.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Users.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ViewModels\ViewModels.csproj" />
   </ItemGroup>
 

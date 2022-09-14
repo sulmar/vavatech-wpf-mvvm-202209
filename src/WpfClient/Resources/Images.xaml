@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    
+
+    <BitmapImage x:Key="HomeImage" UriSource="/Assets/Home.png" />
+    <BitmapImage x:Key="DashboardImage" UriSource="/Assets/Home.png" />
+    <BitmapImage x:Key="CounterImage" UriSource="/Assets/Tasks.png" />
+    <BitmapImage x:Key="ProductsImage" UriSource="/Assets/Products.png" />
+    <BitmapImage x:Key="CustomersImage" UriSource="/Assets/Customers.png" />
+    <BitmapImage x:Key="SettingsImage" UriSource="/Assets/Settings.png" />
+    <BitmapImage x:Key="HelpImage" UriSource="/Assets/Settings.png" />
+
+    <!--<Image x:Key="Home" Source="{StaticResource HomeImage}" />-->
+    
+</ResourceDictionary>
