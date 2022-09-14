@@ -21,25 +21,19 @@ namespace ViewModels
             }
         }
 
-        public ICommand ShowProductsCommand { get; private set; }
-        public ICommand ShowCustomersCommand { get; private set; }
+        public ICommand ShowViewCommand { get; private set; }
 
         public ShellViewModel()
         {
-            ShowProductsCommand = new DelegateCommand(ShowProducts);
-            ShowCustomersCommand = new DelegateCommand(ShowCustomers);
+            ShowViewCommand = new DelegateCommand<string>(ShowView);
 
-            ShowCustomers();
+            ShowView("CustomersView.xaml");
         }
 
-        private void ShowProducts()
+        private void ShowView(string viewName)
         {
-            SelectedView = "ProductsView.xaml";
+            SelectedView = viewName;
         }
-
-        private void ShowCustomers()
-        {
-            SelectedView = "CustomersView.xaml";
-        }
+      
     }
 }
