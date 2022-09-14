@@ -29,7 +29,8 @@
             />
 
         <!-- Selected Detail -->
-        <StackPanel Grid.Column="1" Margin="15">
+        
+        <StackPanel Grid.Column="1" Margin="15" DataContext="{Binding Selected}">
 
             <StackPanel.Resources>
                 <Style TargetType="TextBox">
@@ -43,7 +44,7 @@
 
                 <Ellipse Width="100" Height="100" >
                     <Ellipse.Fill>
-                        <ImageBrush ImageSource="{Binding Selected.Avatar}" />
+                        <ImageBrush ImageSource="{Binding Avatar}" />
                     </Ellipse.Fill>
 
                     <d:Ellipse.Fill>
@@ -51,7 +52,7 @@
                     </d:Ellipse.Fill>
                 </Ellipse>
 
-                <TextBlock Text="{Binding Selected.FullName}"
+                <TextBlock Text="{Binding FullName}"
                            d:Text="John Smith" 
                            Margin="10"
                            VerticalAlignment="Center"
@@ -59,9 +60,9 @@
 
             </StackPanel>
 
-            <TextBox Text="{Binding Selected.FirstName}" d:Text="John" />
-            <TextBox Text="{Binding Selected.LastName}" d:Text="Smith" />
-            <TextBox Text="{Binding Selected.Phone}" d:Text="555-123-321" />
+            <TextBox Text="{Binding FirstName}" d:Text="John" />
+            <TextBox Text="{Binding LastName}" d:Text="Smith" />
+            <TextBox Text="{Binding Phone}" d:Text="555-123-321" />
 
         </StackPanel>
 
