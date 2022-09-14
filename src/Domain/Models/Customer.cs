@@ -3,13 +3,43 @@
 
 
     public class Customer : BaseEntity
-    {        
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Avatar { get; set; }
-        public string Phone { get; set; }
+    {
+        private string firstName;
+        private string lastName;
+        private string phone;
 
-        //public string FullName 
+        public string FirstName
+        {
+            get => firstName;
+            set
+            {
+                firstName = value;
+
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(FullName));
+            }
+        }
+        public string LastName
+        {
+            get => lastName;
+            set
+            {
+                lastName = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(FullName));
+            }
+        }
+        public string Avatar { get; set; }
+        public string Phone
+        {
+            get => phone; set
+            {
+                phone = value;
+                OnPropertyChanged();
+            }
+        }
+
+        //public string FullName
         //{
         //    get
         //    {
@@ -24,7 +54,7 @@
         //    return FullName;
         //}
 
-      //  public override string ToString() => FullName;
-        
+        //  public override string ToString() => FullName;
+
     }
 }

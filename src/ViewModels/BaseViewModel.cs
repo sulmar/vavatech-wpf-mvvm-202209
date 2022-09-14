@@ -1,15 +1,11 @@
-﻿using System.ComponentModel;
+﻿using Domain.Models;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace ViewModels
 {
-    public abstract class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : Base
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+       
     }
 }
