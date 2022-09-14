@@ -17,7 +17,7 @@
         //    }
         //}
 
-        // public string FullName => $"{FirstName} {LastName}";
+        public string FullName => $"{FirstName} {LastName}";
 
         //public override string ToString()
         //{

@@ -13,6 +13,17 @@ namespace ViewModels
     {
         public ICollection<Customer> Customers { get; set; }
 
+        private Customer selected;
+        public Customer Selected 
+        { 
+            get => selected;
+            set
+            {
+                selected = value;
+                OnPropertyChanged();
+            }
+        }
+
         public CustomersViewModel()
             : this(new FakeCustomerRepository())
         {

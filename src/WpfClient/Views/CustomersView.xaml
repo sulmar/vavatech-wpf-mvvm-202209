@@ -7,6 +7,7 @@
       xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      d:Background="White"
       Title="CustomersView">
 
     <Page.DataContext>
@@ -15,32 +16,54 @@
 
     <Grid>
 
-        <!--<ListBox ItemsSource="{Binding Customers}"
-                 DisplayMemberPath="FullName"
-                 />-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
-        <!--<ListBox>
-
-            <ListBoxItem>Item 1</ListBoxItem>
-
-            <ListBoxItem>
-                <Button>Item 2</Button>
-            </ListBoxItem>
-
-            <ListBoxItem>
-                <WrapPanel>
-                    <TextBlock>Item 3</TextBlock>
-                    <Button>Item 3</Button>
-                </WrapPanel>
-                
-            </ListBoxItem>
-          
-
-        </ListBox>-->
-
+        <!-- List -->
         <ListBox 
             ItemsSource="{Binding Customers}"
-            ItemTemplate="{StaticResource CustomerTemplate}" />
+            ItemTemplate="{StaticResource CustomerTemplate}"
+            SelectedItem="{Binding Selected}"            
+            />
+
+        <!-- Selected Detail -->
+        <StackPanel Grid.Column="1" Margin="15">
+
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="Margin" Value="0,5" />
+                    <Setter Property="FontSize" Value="16" />
+                </Style>
+            </StackPanel.Resources>
+
+
+            <StackPanel Orientation="Horizontal">
+
+                <Ellipse Width="100" Height="100" >
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{Binding Selected.Avatar}" />
+                    </Ellipse.Fill>
+
+                    <d:Ellipse.Fill>
+                        <d:ImageBrush ImageSource="https://api.lorem.space/image/face?w=150" />
+                    </d:Ellipse.Fill>
+                </Ellipse>
+
+                <TextBlock Text="{Binding Selected.FullName}"
+                           d:Text="John Smith" 
+                           Margin="10"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource Header2}" />
+
+            </StackPanel>
+
+            <TextBox Text="{Binding Selected.FirstName}" d:Text="John" />
+            <TextBox Text="{Binding Selected.LastName}" d:Text="Smith" />
+            <TextBox Text="{Binding Selected.Phone}" d:Text="555-123-321" />
+
+        </StackPanel>
 
 
     </Grid>

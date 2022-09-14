@@ -82,7 +82,7 @@
 
             <!-- Content -->
 
-            <Frame Source="ProductsView.xaml" />
+            <Frame Source="CustomersView.xaml" />
 
 
 
