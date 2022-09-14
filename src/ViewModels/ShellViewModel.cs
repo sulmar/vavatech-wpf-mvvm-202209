@@ -27,10 +27,10 @@ namespace ViewModels
         {
             ShowViewCommand = new DelegateCommand<string>(ShowView);
 
-            ShowView("CustomersView.xaml");
+            ShowView("Customers");
         }
 
-        private void ShowView(string viewName) => SelectedView = viewName;
+        private void ShowView(string viewName) => SelectedView = $"{viewName}View.xaml";
 
     }
 }

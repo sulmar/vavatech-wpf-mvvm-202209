@@ -37,7 +37,9 @@
                    
                 </Menu.Resources>
 
-                <MenuItem Header="Home">
+                <MenuItem Header="Home" Command="{Binding ShowViewCommand}"
+                          CommandParameter="Home">
+
                     <MenuItem.Icon>
                         <Image Source="{StaticResource HomeImage}" />
                     </MenuItem.Icon>
@@ -47,10 +49,21 @@
                         <Image Source="{StaticResource DashboardImage}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                
-                <MenuItem Header="Counters"   />
-                <MenuItem Header="Products" />
-                <MenuItem Header="Customers" />
+
+                <MenuItem Header="Counters"  
+                          Command="{Binding ShowViewCommand}"
+                          CommandParameter="Counter" />
+
+
+
+                <MenuItem Header="Products"
+                          Command="{Binding ShowViewCommand}"
+                          CommandParameter="Products"
+                          />
+                <MenuItem Header="Customers"
+                          Command="{Binding ShowViewCommand}"
+                          CommandParameter="Customers"
+                          />
                 <MenuItem Header="Settings" />
                 <MenuItem Header="Help" Style="{StaticResource HelpMenuItem}"
                           />
@@ -63,7 +76,7 @@
 
                 <MenuItem Header="Home" 
                           Command="{Binding ShowViewCommand}"
-                          CommandParameter="HomeView.xaml"
+                          CommandParameter="Home"
                           Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource HomeImage}" />
@@ -78,7 +91,7 @@
 
                 <MenuItem Header="Counters"  
                           Command="{Binding ShowViewCommand}"
-                          CommandParameter="CounterView.xaml"
+                          CommandParameter="Counter"
                           Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource CounterImage}" />
@@ -87,7 +100,7 @@
 
                 <MenuItem Header="Products"  
                           Command="{Binding ShowViewCommand}"
-                          CommandParameter="ProductsView.xaml"
+                          CommandParameter="Products"
                           Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource ProductsImage}" />
@@ -96,7 +109,7 @@
 
                 <MenuItem Header="Customers"  
                           Command="{Binding ShowViewCommand}"
-                          CommandParameter="CustomersView.xaml"
+                          CommandParameter="Customers"
                           Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource ProductsImage}" />
