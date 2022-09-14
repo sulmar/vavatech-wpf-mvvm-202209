@@ -44,9 +44,8 @@
 
             <!-- Side bar -->
             <Menu 
-                DockPanel.Dock="Left"
-                Width="200"
-                Padding="20">
+                Style="{StaticResource SideBarMenuStyle}"
+                DockPanel.Dock="Left">
 
                 <MenuItem Header="Home" />
 

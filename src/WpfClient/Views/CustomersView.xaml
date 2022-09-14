@@ -23,7 +23,7 @@
 
         <!-- List -->
         <ListBox 
-            ItemsSource="{Binding Customers}"
+            ItemsSource="{Binding Customers, Mode=OneTime}"
             ItemTemplate="{StaticResource CustomerTemplate}"
             SelectedItem="{Binding Selected}"            
             />
@@ -58,7 +58,7 @@
                            VerticalAlignment="Center"
                            Style="{StaticResource Header2}" />
 
-                <TextBlock Text="{Binding Height, StringFormat='({0} cm)'}"
+                <TextBlock Text="{Binding Height, StringFormat='({0} cm)', Mode=OneWay}"
                            d:Text="(180 cm)"
                            VerticalAlignment="Center"                           
                            />
@@ -68,6 +68,9 @@
             <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" d:Text="John" />
             <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" d:Text="Smith" />
             <TextBox Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}" d:Text="555-123-321" />
+
+
+            <TextBox Text="{Binding Height, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" d:Text="180" />
 
             <Slider Value="{Binding Height}"
                     d:Value="180"
