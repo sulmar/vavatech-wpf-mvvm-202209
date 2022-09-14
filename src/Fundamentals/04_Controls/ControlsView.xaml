@@ -1,0 +1,55 @@
+﻿<Window x:Class="Fundamentals._04_Controls.ControlsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fundamentals._04_Controls"
+        mc:Ignorable="d"
+        Title="ControlsView" Height="450" Width="800">
+    <Grid>
+
+        <StackPanel>
+
+            <Button>
+                <StackPanel>
+                    <Image Width="50" 
+                       Source="https://api.lorem.space/image/movie?w=150" />
+
+                    <TextBlock>Hello Button!</TextBlock>
+                </StackPanel>
+
+            </Button>
+
+            <Label Content="Hello Label!" />
+
+            <TextBlock Text="Hello TextBlock!" />
+
+            <TextBox Text="Hello TextBox!" />
+
+            <Slider />
+
+            <ListBox  />
+
+            <ComboBox />
+
+
+            <CheckBox Content="Is Ok" ></CheckBox>
+
+            <DatePicker />
+
+            <Image />
+
+            <TabControl>
+
+                <TabItem Header="Item 1">Hello Tab 1</TabItem>
+                <TabItem Header="Item 2">Item 2</TabItem>
+                <TabItem Header="Item 3">Item 3</TabItem>
+
+            </TabControl>
+
+            <ProgressBar />
+
+        </StackPanel>
+
+    </Grid>
+</Window>
