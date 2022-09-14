@@ -15,6 +15,18 @@
 
     <Page.Resources>
         <c:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+        <Style x:Key="VisibilityTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Visibility" Value="Collapsed" />
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsVat}" Value="True">
+                    <Setter Property="Visibility" Value="Visible" />
+                </DataTrigger>
+            </Style.Triggers>
+
+        </Style>
+        
     </Page.Resources>
 
     <Page.DataContext>
@@ -89,10 +101,13 @@
 
             <CheckBox Content="Is VAT?" IsChecked="{Binding IsVat}" d:IsChecked="True" />
 
-            <TextBox Text="{Binding TaxNumber}" d:Text="555-123-21-12"
+            <!--<TextBox Text="{Binding TaxNumber}" d:Text="555-123-21-12"
                      Visibility="{Binding IsVat, Converter={StaticResource BooleanToVisibilityConverter}}"
-                     
-                     />
+                     />-->
+
+            <TextBox Text="{Binding TaxNumber}" d:Text="555-123-21-12" 
+                     Style="{StaticResource VisibilityTextBoxStyle}" />
+            
 
 
             <TextBlock Text="{Binding SkillLevel}" d:Text="5" />

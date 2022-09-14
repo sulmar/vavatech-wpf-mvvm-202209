@@ -20,6 +20,22 @@
                                         FalseValue="Disconnected"
                                         />
 
+            <Style x:Key="ConnectionEllipseStyle" TargetType="Ellipse">
+
+                <Setter Property="Fill" Value="Red" />
+                <Setter Property="Width" Value="23" />
+                <Setter Property="Height" Value="23" />
+
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsConnected}" Value="True">
+                        <Setter Property="Fill" Value="Green" />
+                        <Setter Property="Width" Value="20" />
+                        <Setter Property="Height" Value="20" />
+                    </DataTrigger>
+                </Style.Triggers>
+
+            </Style>
+
             <!--<c:BooleanToBrushConverter x:Key="BooleanToBrushConverter"
                                        TrueValue="DarkGreen"
                                        FalseValue="DarkRed"
@@ -59,13 +75,20 @@
                 </StatusBarItem>-->
 
                 <StatusBarItem>
-                    <Ellipse Width="20" Height="20" 
-                             Fill="{Binding IsConnected, Converter={c:BooleanToBrushConverter}}" />
+                    <!--<Ellipse Width="20" Height="20" 
+                             Fill="{Binding IsConnected, Converter={c:BooleanToBrushConverter}}" />-->
+
+                    <Ellipse Style="{StaticResource ConnectionEllipseStyle}" />
+
                 </StatusBarItem>
 
                 
                 <StatusBarItem>
-                    <TextBlock Text="{Binding IsConnected, Converter={StaticResource ConnectionConverter}}" />
+                    <!--<TextBlock Text="{Binding IsConnected, Converter={StaticResource ConnectionConverter}}" />-->
+
+                    <TextBlock>                        <TextBlock.Style>                            <Style TargetType="TextBlock">                                <Setter Property="Text" Value="Disconnected"/>                                <Style.Triggers>                                    <DataTrigger Binding="{Binding IsConnected}" Value="True">                                        <Setter Property="Text" Value="Connected"/>                                    </DataTrigger>                                </Style.Triggers>                            </Style>                        </TextBlock.Style>                    </TextBlock>
+
+
                 </StatusBarItem>
 
             </StatusBar>
