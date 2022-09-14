@@ -30,10 +30,7 @@ namespace ViewModels
             ShowView("CustomersView.xaml");
         }
 
-        private void ShowView(string viewName)
-        {
-            SelectedView = viewName;
-        }
-      
+        private void ShowView(string viewName) => SelectedView = viewName;
+
     }
 }

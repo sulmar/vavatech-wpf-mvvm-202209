@@ -4,12 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfClient.Views"
+        xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
         mc:Ignorable="d"
-        Title="ShellView" Height="450" Width="800">
+        Title="ShellView" Height="750" Width="800">
 
     <Window.Resources>
         <ResourceDictionary Source="/Resources/MenuStyles.xaml" />
     </Window.Resources>
+
+    <Window.DataContext>
+        <vm:ShellViewModel />
+    </Window.DataContext>
     
     <Grid>
 
@@ -53,10 +58,13 @@
 
             <!-- Side bar -->
             <Menu 
-                Style="{StaticResource SideBarMenuStyle}"
+                Style="{StaticResource SideBarMenuStyle}"                
                 DockPanel.Dock="Left">
 
-                <MenuItem Header="Home" Style="{StaticResource SideBarMenuItemStyle}">
+                <MenuItem Header="Home" 
+                          Command="{Binding ShowViewCommand}"
+                          CommandParameter="HomeView.xaml"
+                          Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource HomeImage}" />
                     </MenuItem.Icon>
@@ -68,20 +76,28 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Counters"  Style="{StaticResource SideBarMenuItemStyle}">
+                <MenuItem Header="Counters"  
+                          Command="{Binding ShowViewCommand}"
+                          CommandParameter="CounterView.xaml"
+                          Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource CounterImage}" />
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Products"  Style="{StaticResource SideBarMenuItemStyle}">
+                <MenuItem Header="Products"  
+                          Command="{Binding ShowViewCommand}"
+                          CommandParameter="ProductsView.xaml"
+                          Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource ProductsImage}" />
                     </MenuItem.Icon>
                 </MenuItem>
 
-
-                <MenuItem Header="Customers"  Style="{StaticResource SideBarMenuItemStyle}">
+                <MenuItem Header="Customers"  
+                          Command="{Binding ShowViewCommand}"
+                          CommandParameter="CustomersView.xaml"
+                          Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource ProductsImage}" />
                     </MenuItem.Icon>
@@ -124,7 +140,9 @@
 
             <!-- Content -->
 
-            <Frame Source="CustomersView.xaml" />
+            <Frame Source="{Binding SelectedView}"
+                   NavigationUIVisibility="Hidden"
+                   />
 
 
 
