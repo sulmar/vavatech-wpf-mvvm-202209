@@ -9,6 +9,7 @@
         private string phone;
         private byte height;
         private byte skillLevel;
+        private bool isVat;
 
         public string FirstName
         {
@@ -51,6 +52,17 @@
         }
 
         public bool IsSelected { get; set; }
+
+        public bool IsVat
+        {
+            get => isVat; set
+            {
+                isVat = value;
+                OnPropertyChanged();
+            }
+        }
+        public string TaxNumber { get; set; }
+
 
         public byte SkillLevel
         {

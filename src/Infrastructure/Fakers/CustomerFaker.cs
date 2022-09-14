@@ -21,6 +21,9 @@ namespace Infrastructure.Fakers
             RuleFor(p => p.Phone, f => f.Phone.PhoneNumber());
             RuleFor(p => p.Height, f => f.Random.Byte(100));
 
+            RuleFor(p => p.IsVat, f => f.Random.Bool(0.8f));
+            Ignore(p => p.TaxNumber);
+
             Ignore(p => p.IsSelected);
             Ignore(p => p.SkillLevel);
         }

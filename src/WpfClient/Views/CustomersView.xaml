@@ -5,12 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfClient.Views"
       xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
+      xmlns:c="clr-namespace:WpfClient.Converters"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       d:Background="White"
       Title="CustomersView"
       x:Name="Root"
       >
+
+    <Page.Resources>
+        <c:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Page.Resources>
 
     <Page.DataContext>
         <vm:CustomersViewModel />
@@ -81,6 +86,13 @@
                     Minimum="100"
                     Maximum="255"
                     />
+
+            <CheckBox Content="Is VAT?" IsChecked="{Binding IsVat}" d:IsChecked="True" />
+
+            <TextBox Text="{Binding TaxNumber}" d:Text="555-123-21-12"
+                     Visibility="{Binding IsVat, Converter={StaticResource BooleanToVisibilityConverter}}"
+                     
+                     />
 
 
             <TextBlock Text="{Binding SkillLevel}" d:Text="5" />
