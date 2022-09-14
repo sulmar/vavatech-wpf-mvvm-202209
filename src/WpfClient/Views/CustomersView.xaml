@@ -58,11 +58,22 @@
                            VerticalAlignment="Center"
                            Style="{StaticResource Header2}" />
 
+                <TextBlock Text="{Binding Height, StringFormat='({0} cm)'}"
+                           d:Text="(180 cm)"
+                           VerticalAlignment="Center"                           
+                           />
+
             </StackPanel>
 
-            <TextBox Text="{Binding FirstName}" d:Text="John" />
-            <TextBox Text="{Binding LastName}" d:Text="Smith" />
-            <TextBox Text="{Binding Phone}" d:Text="555-123-321" />
+            <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" d:Text="John" />
+            <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" d:Text="Smith" />
+            <TextBox Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}" d:Text="555-123-321" />
+
+            <Slider Value="{Binding Height}"
+                    d:Value="180"
+                    Minimum="100"
+                    Maximum="255"
+                    />
 
         </StackPanel>
 

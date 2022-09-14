@@ -13,11 +13,15 @@ namespace Infrastructure.Fakers
     {
         public CustomerFaker()
         {
+            StrictMode(true);
             RuleFor(p => p.Id, f => f.IndexFaker);
             RuleFor(p => p.FirstName, f => f.Person.FirstName);
             RuleFor(p => p.LastName, f => f.Person.LastName);
             RuleFor(p => p.Avatar, f => f.Person.Avatar);
             RuleFor(p => p.Phone, f => f.Phone.PhoneNumber());
+            RuleFor(p => p.Height, f => f.Random.Byte(100));
+
+            Ignore(p => p.IsSelected);
         }
     }
 }

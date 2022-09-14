@@ -7,6 +7,7 @@
         private string firstName;
         private string lastName;
         private string phone;
+        private byte height;
 
         public string FirstName
         {
@@ -38,6 +39,17 @@
                 OnPropertyChanged();
             }
         }
+
+        public byte Height
+        {
+            get => height; set
+            {
+                height = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsSelected { get; set; }
 
         //public string FullName
         //{
