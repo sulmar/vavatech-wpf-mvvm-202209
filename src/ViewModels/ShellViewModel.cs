@@ -10,13 +10,23 @@ namespace ViewModels
     public class ShellViewModel : BaseViewModel
     {
         private string selectedView;
+        private bool isConnected;
 
         public string SelectedView
         {
-            get => selectedView; 
+            get => selectedView;
             set
             {
                 selectedView = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsConnected
+        {
+            get => isConnected; set
+            {
+                isConnected = value;
                 OnPropertyChanged();
             }
         }
@@ -28,6 +38,8 @@ namespace ViewModels
             ShowViewCommand = new DelegateCommand<string>(ShowView);
 
             ShowView("Customers");
+
+            IsConnected = false;
         }
 
         private void ShowView(string viewName) => SelectedView = $"{viewName}View.xaml";
