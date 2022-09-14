@@ -66,7 +66,36 @@
                 DockPanel.Dock="Bottom">
 
                 <StatusBarItem>
-                    <CheckBox IsChecked="{Binding IsConnected}"  />
+                    <CheckBox IsChecked="{Binding IsConnected}" >
+
+                        <CheckBox.Style>
+                            <Style TargetType="CheckBox">
+                                <Style.Triggers>
+                                    <Trigger Property="IsChecked" Value="True">
+                                        
+                                        <!--<Setter Property="Content" Value="Connected" />-->
+
+                                        <Setter Property="Content">
+                                            <Setter.Value>
+                                                <Image Source="{StaticResource ProductsImage}" />
+                                            </Setter.Value>
+                                            
+                                        </Setter>
+                                    </Trigger>
+
+                                    <Trigger Property="IsChecked" Value="False">
+                                        <!--<Setter Property="Content" Value="Disconnected" />-->
+                                        <Setter Property="Content">
+                                            <Setter.Value>
+                                                <Image Source="{StaticResource CustomersImage}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </CheckBox.Style>
+
+                    </CheckBox>
                 </StatusBarItem>
                 
                 <!--<StatusBarItem>
