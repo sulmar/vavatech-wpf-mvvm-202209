@@ -20,6 +20,11 @@
                                         FalseValue="Disconnected"
                                         />
 
+            <c:BooleanToBrushConverter x:Key="BooleanToBrushConverter"
+                                       TrueValue="DarkGreen"
+                                       FalseValue="DarkRed"
+                                       />
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Resources/MenuStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
@@ -49,7 +54,8 @@
                 </StatusBarItem>
                 
                 <StatusBarItem>
-                    <Ellipse Width="20" Height="20" Fill="{Binding IsConnected}" />
+                    <Ellipse Width="20" Height="20" 
+                             Fill="{Binding IsConnected, Converter={StaticResource BooleanToBrushConverter}}" />
                 </StatusBarItem>
 
                 <StatusBarItem>
