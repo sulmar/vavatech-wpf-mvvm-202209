@@ -21,11 +21,21 @@
         <DockPanel>
 
        
-            <!-- Status bar -->            
-            <Border
-                Height="50"
-                DockPanel.Dock="Bottom"
-                Background="Orange" />
+            <!-- Status bar -->
+            <StatusBar
+                Height="40"
+                Padding="5"
+                DockPanel.Dock="Bottom">
+
+                <StatusBarItem>
+                    <Ellipse Width="20" Height="20" Fill="DarkGreen" />
+                </StatusBarItem>
+
+                <StatusBarItem>
+                    Connected
+                </StatusBarItem>
+
+            </StatusBar>
 
 
             <!-- Main menu -->
@@ -50,7 +60,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Counters"  
+                <MenuItem Header="Counter"  
                           Command="{Binding ShowViewCommand}"
                           CommandParameter="Counter" />
 
@@ -76,7 +86,7 @@
 
                 <MenuItem Header="Home" 
                           Command="{Binding ShowViewCommand}"
-                          CommandParameter="Home"
+                          CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Header}"
                           Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource HomeImage}" />
@@ -89,9 +99,9 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Counters"  
+                <MenuItem Header="Counter"  
                           Command="{Binding ShowViewCommand}"
-                          CommandParameter="Counter"
+                          CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Header}"
                           Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource CounterImage}" />
@@ -100,7 +110,7 @@
 
                 <MenuItem Header="Products"  
                           Command="{Binding ShowViewCommand}"
-                          CommandParameter="Products"
+                          CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Header}"
                           Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource ProductsImage}" />
@@ -109,7 +119,7 @@
 
                 <MenuItem Header="Customers"  
                           Command="{Binding ShowViewCommand}"
-                          CommandParameter="Customers"
+                          CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Header}"
                           Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource ProductsImage}" />

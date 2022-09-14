@@ -22,6 +22,7 @@ namespace Infrastructure.Fakers
             RuleFor(p => p.Height, f => f.Random.Byte(100));
 
             Ignore(p => p.IsSelected);
+            Ignore(p => p.SkillLevel);
         }
     }
 }

@@ -8,6 +8,7 @@
         private string lastName;
         private string phone;
         private byte height;
+        private byte skillLevel;
 
         public string FirstName
         {
@@ -50,6 +51,15 @@
         }
 
         public bool IsSelected { get; set; }
+
+        public byte SkillLevel
+        {
+            get => skillLevel; set
+            {
+                skillLevel = value;
+                OnPropertyChanged();
+            }
+        }
 
         //public string FullName
         //{

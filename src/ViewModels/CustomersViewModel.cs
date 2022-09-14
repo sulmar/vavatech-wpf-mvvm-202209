@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ViewModels
 {
@@ -24,15 +25,19 @@ namespace ViewModels
             }
         }
 
+        public ICommand SkillLevelUpCommand { get; private set; }
+
         public CustomersViewModel()
             : this(new FakeCustomerRepository())
         {
-
+            SkillLevelUpCommand = new DelegateCommand(SkillLevelUp);
         }
 
         public CustomersViewModel(ICustomerRepository customerRepository)
         {
             Customers = customerRepository.Get();
         }
+
+        private void SkillLevelUp() => Selected.SkillLevel++;
     }
 }

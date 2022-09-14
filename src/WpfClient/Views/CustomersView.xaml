@@ -8,7 +8,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       d:Background="White"
-      Title="CustomersView">
+      Title="CustomersView"
+      x:Name="Root"
+      >
 
     <Page.DataContext>
         <vm:CustomersViewModel />
@@ -63,6 +65,8 @@
                            VerticalAlignment="Center"                           
                            />
 
+               
+
             </StackPanel>
 
             <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" d:Text="John" />
@@ -77,6 +81,15 @@
                     Minimum="100"
                     Maximum="255"
                     />
+
+
+            <TextBlock Text="{Binding SkillLevel}" d:Text="5" />
+
+            <Button Command="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=DataContext.SkillLevelUpCommand}">Skill Level Up</Button>
+
+            <Button Command="{Binding ElementName=Root, Path=DataContext.SkillLevelUpCommand}">Skill Level Up</Button>
+
+
 
         </StackPanel>
 
