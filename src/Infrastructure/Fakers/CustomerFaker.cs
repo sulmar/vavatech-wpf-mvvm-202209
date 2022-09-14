@@ -26,6 +26,8 @@ namespace Infrastructure.Fakers
 
             Ignore(p => p.IsSelected);
             Ignore(p => p.SkillLevel);
+
+            RuleFor(p => p.Salary, f => Math.Round( f.Random.Decimal(1000, 10_000),0));
         }
     }
 }

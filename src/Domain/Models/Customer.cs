@@ -1,4 +1,6 @@
-﻿namespace Domain.Models
+﻿using System.Security.Principal;
+
+namespace Domain.Models
 {
 
 
@@ -90,5 +92,36 @@
 
         //  public override string ToString() => FullName;
 
+        public decimal Salary { get; set; }
+
+        //public SalaryKind SalaryKind
+        //{
+        //    get
+        //    {
+        //        if (Salary < 5000)
+        //            return SalaryKind.Low;
+        //        else if (Salary < 7000)
+        //            return SalaryKind.Medium;
+        //        else
+        //            return SalaryKind.High;
+        //    }
+        //}
+
+        // pattern-matching
+        // https://docs.microsoft.com/pl-pl/dotnet/csharp/fundamentals/functional/pattern-matching
+        public SalaryKind SalaryKind => Salary switch
+        {
+            < 5000 => SalaryKind.Low,
+            > 7000 => SalaryKind.Medium,
+            _ => SalaryKind.High
+        };
+
+    }
+
+    public enum SalaryKind
+    {
+        Low,
+        Medium,
+        High,
     }
 }
