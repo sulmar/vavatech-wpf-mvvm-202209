@@ -11,6 +11,10 @@
     <BitmapImage x:Key="SettingsImage" UriSource="/Assets/Settings.png" />
     <BitmapImage x:Key="HelpImage" UriSource="/Assets/Settings.png" />
 
+    <BitmapImage x:Key="TasksImage" UriSource="/Assets/Tasks.png" />
+    <BitmapImage x:Key="MoneyImage" UriSource="/Assets/Money.png" />
+    <BitmapImage x:Key="DocumentsImage" UriSource="/Assets/Documents.png" />
+
     <!--<Image x:Key="Home" Source="{StaticResource HomeImage}" />-->
     
 </ResourceDictionary>

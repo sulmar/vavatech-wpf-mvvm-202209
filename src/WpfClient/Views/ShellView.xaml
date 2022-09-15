@@ -178,7 +178,10 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Dashboard"  Style="{StaticResource SideBarMenuItemStyle}">
+                <MenuItem Header="Dashboard"  Style="{StaticResource SideBarMenuItemStyle}"
+                          Command="{Binding ShowViewCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Header}"
+                          >
                     <MenuItem.Icon>
                         <Image Source="{StaticResource DashboardImage}" />
                     </MenuItem.Icon>
