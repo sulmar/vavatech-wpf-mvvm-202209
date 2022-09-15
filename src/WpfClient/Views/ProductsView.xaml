@@ -36,9 +36,26 @@
             <Label>Color</Label>
             <TextBox Text="{Binding Color}" />
             <Label>Price</Label>
-            <TextBox Text="{Binding FromPrice}" />
-            <TextBox Text="{Binding ToPrice}" />
 
+            <TextBox>
+                <TextBox.Text>
+                    <Binding Path="FromPrice" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <vr:RangeValidationRule Minimum="1" Maximum="1000" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            
+            <TextBox>
+                <TextBox.Text>
+                    <Binding Path="ToPrice" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <vr:RangeValidationRule Minimum="1" Maximum="1000" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
 
         <Button Command="{Binding SearchCommand}" DockPanel.Dock="Top">Search</Button>
@@ -97,7 +114,16 @@
                 <TextBox MaxHeight="300" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" d:Text="Description"                      TextWrapping="Wrap"                     AcceptsReturn="True"                     VerticalScrollBarVisibility="Auto"/>
 
                 <Label>Price</Label>
-                <TextBox Text="{Binding Price}" />
+                <TextBox>
+                    <TextBox.Text>
+                        <Binding Path="Price" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <vr:RangeValidationRule Minimum="1" Maximum="1000" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                
             </StackPanel>
 
 

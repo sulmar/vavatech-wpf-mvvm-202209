@@ -18,4 +18,5 @@ namespace WpfClient.ValidationRules
                 return new ValidationResult(false, $"Długość tekstu powinna zawierać się pomiędzy {MinimumLength} a {MaximumLength} znaków");
         }
     }
+
 }
