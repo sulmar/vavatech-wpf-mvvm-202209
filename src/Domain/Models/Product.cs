@@ -11,4 +11,13 @@
         public const decimal LimitPrice = 500;
         public bool OverLimitPrice => Price > LimitPrice;
     }
+
+    public class ProductSearchCriteria : Base
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Color { get; set; }
+        public decimal? FromPrice { get; set; }
+        public decimal? ToPrice { get; set; }
+    }
 }

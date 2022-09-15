@@ -13,7 +13,38 @@
         <vm:ProductsViewModel />
     </Page.DataContext>
 
-    <Grid>
+
+    <DockPanel Margin="20">
+
+        <!-- Search Criteria -->
+        
+        <StackPanel  DockPanel.Dock="Top" DataContext="{Binding SearchCriteria}">
+
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="Margin" Value="5" />
+                    <Setter Property="FontSize" Value="18" />
+                </Style>
+                       
+            </StackPanel.Resources>
+
+            <Label>Name</Label>
+            <TextBox Text="{Binding Name}" />
+            <Label>Description</Label>
+            <TextBox Text="{Binding Description}" />
+            <Label>Color</Label>
+            <TextBox Text="{Binding Color}" />
+            <Label>Price</Label>
+            <TextBox Text="{Binding FromPrice}" />
+            <TextBox Text="{Binding ToPrice}" />
+
+        </StackPanel>
+
+        <Button Command="{Binding SearchCommand}" DockPanel.Dock="Top">Search</Button>
+
+        <!-- Content -->
+
+        <Grid>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -49,4 +80,6 @@
 
 
     </Grid>
+
+    </DockPanel>
 </Page>
