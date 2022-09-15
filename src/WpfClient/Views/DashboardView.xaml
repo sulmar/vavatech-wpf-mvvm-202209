@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:WpfClient.Views" 
       xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels" 
       xmlns:uc="clr-namespace:WpfClient.UserControls"
+      xmlns:c="clr-namespace:WpfClient.Converters"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DashboardView">
@@ -15,8 +16,10 @@
     </Page.DataContext>
 
     <Page.Resources>
-      
-        
+
+        <c:PercentageToBrushConverter x:Key="PercentageToBrushConverter"/>
+
+        <DataTemplate x:Key="TaskTypeTemplate" >                        <StackPanel Width="250" HorizontalAlignment="Left" Margin="10">                            <TextBlock Text="{Binding Name}" Style="{StaticResource Header5}" />                                <ProgressBar Value="{Binding Progress}"                                          Minimum="0"                                         Maximum="1"                                         Height="15"                                                                                 Foreground="{Binding RelativeSource={RelativeSource Self}, Path=Value, Converter={StaticResource PercentageToBrushConverter}}"                                         />            </StackPanel>        </DataTemplate>
     </Page.Resources>
 
     <Grid>
@@ -49,11 +52,7 @@
                                 Quantity="{Binding PendingDocuments}"
                                 />
 
-
-                <!--<Border Style="{StaticResource BorderStats}">                    <DockPanel>                        <Image DockPanel.Dock="Right" Height="40" Source="{StaticResource CustomersImage}" />                                            <StackPanel>                            <TextBlock Style="{StaticResource StatTitle}" Text="ACTIVE CUSTOMER:" Foreground="DodgerBlue"/>                            <TextBlock Style="{StaticResource StatResult}" d:Text="75" Text="{Binding ActiveCustomers}" />                        </StackPanel>                                        </DockPanel>                </Border>
-
-                <Border Style="{StaticResource BorderStats}">                    <DockPanel>                        <Image DockPanel.Dock="Right"  Height="40" Source="{StaticResource MoneyImage}" />                                                <StackPanel>                            <TextBlock Style="{StaticResource StatTitle}" Text="EARNING (ANNUAL):" Foreground="Green" />                            <TextBlock Style="{StaticResource StatResult}" d:Text="75" Text="{Binding EarningAnnual}" />                        </StackPanel>                                            </DockPanel>                </Border>                <Border Style="{StaticResource BorderStats}">                    <DockPanel>                        <Image DockPanel.Dock="Right"  Height="40" Source="{StaticResource TasksImage}" />                                                <StackPanel>                            <TextBlock Style="{StaticResource StatTitle}" Text="TASKS" Foreground="DarkViolet"/>                            <TextBlock Style="{StaticResource StatResult}" d:Text="75" Text="{Binding Tasks}" />                        </StackPanel>                                            </DockPanel>                </Border>
-                <Border Style="{StaticResource BorderStats}">                    <DockPanel>                        <Image DockPanel.Dock="Right"  Height="40" Source="{StaticResource DocumentsImage}" />                                                <StackPanel>                            <TextBlock Style="{StaticResource StatTitle}" Text="PENDING DOCUMENT:" Foreground="OrangeRed"/>                            <TextBlock Style="{StaticResource StatResult}" d:Text="75" Text="{Binding PendingDocuments}" />                        </StackPanel>                                            </DockPanel>                </Border>-->                                            </UniformGrid>        </StackPanel>
+                                                        </UniformGrid>            <ItemsControl                 ItemsSource="{Binding TaskTypes}"                ItemTemplate="{StaticResource TaskTypeTemplate}" />        </StackPanel>
 
 
     </Grid>

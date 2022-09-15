@@ -15,9 +15,38 @@
 
     <Grid>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
         <ListBox ItemsSource="{Binding Entities}"
                  ItemTemplate="{StaticResource ProductTemplate}"
+                 SelectedItem="{Binding Selected}"
                  />
+
+
+        <StackPanel Grid.Column="1" DataContext="{Binding Selected}">
+
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="Margin" Value="5,0" />
+                    <Setter Property="FontSize" Value="16" />
+                </Style>
+            </StackPanel.Resources>
+
+            <Label>Name</Label>
+            <TextBox Text="{Binding Name}" />
+
+            <Label>Description</Label>
+            <TextBox MaxHeight="300" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" d:Text="Description"                      TextWrapping="Wrap"                     AcceptsReturn="True"                     VerticalScrollBarVisibility="Auto"/>
+
+            <Label>Price</Label>
+            <TextBox Text="{Binding Price}" />
+        </StackPanel>
+        
+        
+
 
     </Grid>
 </Page>
