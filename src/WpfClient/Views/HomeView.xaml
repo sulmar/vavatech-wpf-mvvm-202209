@@ -3,24 +3,104 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WpfClient.Views"
+      xmlns:local="clr-namespace:WpfClient.Views" xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="750" d:DesignWidth="800"
       d:Background="White"
       Title="HomeView">
 
+    <Page.DataContext>
+        <vm:ProductsViewModel />
+    </Page.DataContext>
+
     <Grid>
 
-        <StackPanel>
+        <DockPanel>
+
+            <!-- Header Panel -->
+            <StackPanel DockPanel.Dock="Top"                        
+                        Height="200"
+                        Orientation="Horizontal"
+                        >
 
 
-            <TextBlock Text="Home View"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center" />
+                <StackPanel Width="300" 
+                            Height="150"
+                            Margin="20"
+                            Background="DarkSlateBlue">
+
+                    <Image 
+                        Width="100"
+                        HorizontalAlignment="Left"
+                        Source="{StaticResource CustomersImage}" />
+
+                    <TextBlock Text="Lorem ipsum"
+                               Foreground="White"
+                               Margin="10"
+                               HorizontalAlignment="Left"
+                               />
+
+                </StackPanel>
+
+                <Grid Width="150" 
+                            Height="150"
+                            Margin="20"
+                            Background="Orange">
+
+                    <Image 
+                        Width="100"                                                
+                        Source="{StaticResource HomeImage}" />
+
+                </Grid>
+
+
+
+            </StackPanel>
 
             
-            <Button>About</Button>
-        </StackPanel>
+            <!-- Items Panel -->
+
+            <ItemsControl ItemsSource="{Binding Entities}">
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Border Width="150" Height="150" Margin="5" Background="#3aa0ff" />
+                            <TextBlock Text="{Binding Name}" Foreground="White" />
+
+                            <Grid.Effect>
+                                <DropShadowEffect Opacity="0.7"
+                                                  BlurRadius="20"
+                                                  />
+
+
+                            </Grid.Effect>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                
+
+            </ItemsControl>
+
+
+
+            <!--<WrapPanel>
+
+                <Border Width="100" Height="100" Background="Blue" />
+                <Border Width="100" Height="100" Background="Blue" />
+                <Border Width="100" Height="100" Background="Blue"/>
+                <Border Width="100" Height="100" Background="Blue"/>
+            </WrapPanel>-->
+
+
+
+        </DockPanel>
         
     </Grid>
 </Page>
