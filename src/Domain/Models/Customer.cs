@@ -1,10 +1,12 @@
-﻿using System.Security.Principal;
+﻿using System.Collections;
+using System.ComponentModel;
+using System.Security.Principal;
 
 namespace Domain.Models
 {
 
 
-    public class Customer : BaseEntity
+    public class Customer : BaseEntity, INotifyDataErrorInfo
     {
         private string firstName;
         private string lastName;
@@ -15,6 +17,8 @@ namespace Domain.Models
 
         private const int MinimumLength = 3;
         private const int MaximumLength = 20;
+
+        public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
 
         public string FirstName
         {
@@ -60,7 +64,11 @@ namespace Domain.Models
         {
             get => height; set
             {
+                
                 height = value;
+
+                ValidateHeight();
+
                 OnPropertyChanged();
             }
         }
@@ -128,6 +136,45 @@ namespace Domain.Models
             _ => SalaryKind.High
         };
 
+        #region INotifyDataErrorInfo
+
+        private readonly IDictionary<string, List<string>> errorsByPropertyName = new Dictionary<string, List<string>>();
+
+        public bool HasErrors => errorsByPropertyName.Any();
+
+        public IEnumerable GetErrors(string? propertyName)
+        {
+            return errorsByPropertyName.ContainsKey(propertyName) ? errorsByPropertyName[propertyName] : Enumerable.Empty<string>();
+        }
+
+        private void AddError(string propertyName, string error)
+        {
+            if (!errorsByPropertyName.ContainsKey(propertyName))            
+                errorsByPropertyName[propertyName] = new List<string>();
+
+            if (!errorsByPropertyName[propertyName].Contains(error))
+            {
+                errorsByPropertyName[propertyName].Add(error);
+
+                OnErrorsChanged(propertyName);
+                
+            }            
+        }
+
+        private void ValidateHeight()
+        {
+            if (Height < 100 || Height > 250 )
+            {
+                AddError(nameof(Height), $"Wzrost musi być pomiędzy 100 a 250 cm");
+            }
+        }
+
+        private void OnErrorsChanged(string propertyName)
+        {
+            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+        }
+
+        #endregion
     }
 
     public enum SalaryKind

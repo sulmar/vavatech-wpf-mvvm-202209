@@ -98,12 +98,12 @@
             </TextBox>
 
             <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True}" d:Text="Smith" />
-            <TextBox Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}" d:Text="555-123-321" />
+            <TextBox Text="{Binding Phone, UpdateSourceTrigger=Prope    rtyChanged}" d:Text="555-123-321" />
 
 
             <TextBox Text="{Binding Height, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" d:Text="180" />
 
-            <Slider Value="{Binding Height}"
+            <Slider Value="{Binding Height, ValidatesOnNotifyDataErrors=True}"
                     d:Value="180"
                     Minimum="100"
                     Maximum="255"
