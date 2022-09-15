@@ -26,7 +26,7 @@
             </Style.Triggers>
 
         </Style>
-        
+
     </Page.Resources>
 
     <Page.DataContext>
@@ -55,6 +55,7 @@
                 <Style TargetType="TextBox">
                     <Setter Property="Margin" Value="0,5" />
                     <Setter Property="FontSize" Value="16" />
+                    <Setter Property="Validation.ErrorTemplate" Value="{StaticResource ValidationErrorTemplate }"/>
                 </Style>
             </StackPanel.Resources>
 
@@ -86,8 +87,17 @@
 
             </StackPanel>
 
-            <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" d:Text="John" />
-            <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" d:Text="Smith" />
+            <TextBox d:Text="John">
+                <TextBox.Text>
+                    <Binding Path="FirstName" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <ExceptionValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True}" d:Text="Smith" />
             <TextBox Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}" d:Text="555-123-321" />
 
 

@@ -13,11 +13,20 @@ namespace Domain.Models
         private byte skillLevel;
         private bool isVat;
 
+        private const int MinimumLength = 3;
+        private const int MaximumLength = 20;
+
         public string FirstName
         {
             get => firstName;
             set
             {
+                if (string.IsNullOrEmpty(value))
+                    throw new ArgumentNullException("Pole nie może być puste.");
+
+                //if (value.Length >= MinimumLength & value.Length <= MaximumLength)
+                //    throw new ArgumentException($"Długość imienia powinna zawierać się pomiędzy {MinimumLength} a {MaximumLength} znaków");
+
                 firstName = value;
 
                 OnPropertyChanged();
@@ -29,6 +38,9 @@ namespace Domain.Models
             get => lastName;
             set
             {
+                if (string.IsNullOrEmpty(value))
+                    throw new ArgumentNullException("Pole nie może być puste.");
+
                 lastName = value;
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(FullName));
