@@ -3,7 +3,9 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WpfClient.Views" xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
+      xmlns:local="clr-namespace:WpfClient.Views" 
+      xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
+      xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="800"
       d:Background="White"
@@ -12,6 +14,19 @@
     <Page.DataContext>
         <vm:ProductsViewModel />
     </Page.DataContext>
+
+    <Page.Resources>
+        
+        <CollectionViewSource x:Key="ProductsViewSource"  
+                              Source="{Binding Entities}" >
+
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="Name" Direction="Ascending" />
+            </CollectionViewSource.SortDescriptions>
+            
+        </CollectionViewSource>
+        
+    </Page.Resources>
 
     <Grid>
 
@@ -60,33 +75,38 @@
             
             <!-- Items Panel -->
 
-            <ItemsControl ItemsSource="{Binding Entities}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
 
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Border Width="150" Height="150" Margin="5" Background="#3aa0ff" />
-                            <TextBlock Text="{Binding Name}" Foreground="White" />
+                <ItemsControl 
+                    ItemsSource="{Binding Source={StaticResource ProductsViewSource}}">
 
-                            <Grid.Effect>
-                                <DropShadowEffect Opacity="0.7"
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Border Width="150" Height="150" Margin="5" Background="#3aa0ff" />
+                                <TextBlock Text="{Binding Name}" Foreground="White" />
+
+                                <Grid.Effect>
+                                    <DropShadowEffect Opacity="0.7"
                                                   BlurRadius="20"
                                                   />
 
 
-                            </Grid.Effect>
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
+                                </Grid.Effect>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
 
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
 
-            </ItemsControl>
+
+                </ItemsControl>
+
+            </ScrollViewer>
 
 
 
