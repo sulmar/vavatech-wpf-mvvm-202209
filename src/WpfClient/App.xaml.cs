@@ -50,6 +50,8 @@ namespace WpfClient
                 services.AddSingleton<HomeView>();
 
                 services.AddSingleton<DashboardView>();
+                services.AddSingleton<ITaskTypeRepository, InMemoryTaskTypeRepository>();
+
                 services.AddSingleton<DashboardViewModel>();
 
                 services.AddSingleton<CounterView>();

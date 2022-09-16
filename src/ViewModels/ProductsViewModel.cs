@@ -1,8 +1,6 @@
 ﻿using Domain.Models;
 using Domain.Models.SearchCriterias;
 using Domain.Repositories;
-using Infrastructure;
-using Infrastructure.Fakers;
 using System.Windows.Input;
 
 namespace ViewModels
