@@ -11,9 +11,9 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DashboardView">
 
-    <Page.DataContext>
+    <!--<Page.DataContext>
         <vm:DashboardViewModel />
-    </Page.DataContext>
+    </Page.DataContext>-->
 
     <Page.Resources>
 

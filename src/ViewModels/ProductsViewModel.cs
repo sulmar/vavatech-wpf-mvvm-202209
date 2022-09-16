@@ -24,11 +24,11 @@ namespace ViewModels
 
         public ICommand SearchCommand { get; private set; }
 
-        public ProductsViewModel()
-            : this(new FakeProductRepository(new ProductFaker()))
-        {
+        //public ProductsViewModel()
+        //    : this(new FakeProductRepository(new ProductFaker()))
+        //{
             
-        }
+        //}
 
         private IProductRepository productRepository => (IProductRepository) entityRepository;
 

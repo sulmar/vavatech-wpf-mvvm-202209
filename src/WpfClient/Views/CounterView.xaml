@@ -11,9 +11,9 @@
       d:Background="White">
 
     <!-- Deklaratywnie -->
-    <Page.DataContext>
+    <!--<Page.DataContext>
         <vm:CounterViewModel />
-    </Page.DataContext>
+    </Page.DataContext>-->
 
     <Grid>
 

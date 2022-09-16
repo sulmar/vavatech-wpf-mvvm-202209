@@ -13,6 +13,10 @@
       x:Name="Root"
       >
 
+    <!--<Page.DataContext>
+        <vm:CustomersViewModel />
+    </Page.DataContext>-->
+
     <Page.Resources>
         <c:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
@@ -29,9 +33,7 @@
 
     </Page.Resources>
 
-    <Page.DataContext>
-        <vm:CustomersViewModel />
-    </Page.DataContext>
+   
 
     <Grid>
 

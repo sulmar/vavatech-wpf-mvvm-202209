@@ -25,7 +25,6 @@ namespace WpfClient.Views
             InitializeComponent();
 
             this.DataContext = viewModel;
-
         }
     }
 }

@@ -22,6 +22,17 @@ namespace ViewModels
             }
         }
 
+        private object selectedPage;
+        public object SelectedPage
+        {
+            get => selectedPage;
+            set
+            {
+                selectedPage = value;
+                OnPropertyChanged();
+            }
+        }
+
         public bool IsConnected
         {
             get => isConnected; set
@@ -33,16 +44,25 @@ namespace ViewModels
 
         public ICommand ShowViewCommand { get; private set; }
 
-        public ShellViewModel()
-        {
-            ShowViewCommand = new DelegateCommand<string>(ShowView);
+        public ICommand ShowPageCommand { get; private set; }
+        
+        private readonly INavigationService navigationService;
 
-            ShowView("Customers");
+        public ShellViewModel(INavigationService navigationService)
+        {
+            this.navigationService = navigationService;
+
+            ShowViewCommand = new DelegateCommand<string>(ShowView);
+            ShowPageCommand = new DelegateCommand<Type>(ShowPage);
+
+            ShowView("Home");
 
             IsConnected = false;
         }
 
         private void ShowView(string viewName) => SelectedView = $"{viewName}View.xaml";
+
+        private void ShowPage(Type viewType) => navigationService.Navigate(viewType);
 
     }
 }

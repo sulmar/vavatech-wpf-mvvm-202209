@@ -17,16 +17,6 @@ namespace ViewModels
 
         private readonly ICustomerRepository customerRepository;
 
-        public MapCustomersViewModel()
-           : this(new FakeCustomerRepository(new CustomerFaker()))
-        {
-        }
-
-        //public MapCustomersViewModel()
-        //   : this(new DbCustomerRepository(new MyContext("server=local,database=mydb")))
-        //{
-        //}
-
         public MapCustomersViewModel(ICustomerRepository customerRepository)
         {
             this.customerRepository = customerRepository;

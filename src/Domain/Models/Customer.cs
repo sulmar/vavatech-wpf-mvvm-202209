@@ -18,6 +18,11 @@ namespace Domain.Models
         private const int MinimumLength = 3;
         private const int MaximumLength = 20;
 
+        public static int GetMaxSkillLevel()
+        {
+            return 10;
+        }
+
         public string FirstName
         {
             get => firstName;

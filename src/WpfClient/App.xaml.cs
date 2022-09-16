@@ -1,4 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Bogus;
+using Domain.Models;
+using Domain.Repositories;
+using Infrastructure;
+using Infrastructure.Fakers;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
@@ -8,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using ViewModels;
+using WpfClient.Services;
 using WpfClient.Views;
 
 namespace WpfClient
@@ -30,6 +36,28 @@ namespace WpfClient
             {
                 services.AddSingleton<ShellView>();
                 services.AddSingleton<ShellViewModel>();
+
+                services.AddSingleton<CustomersView>();
+                services.AddSingleton<CustomersViewModel>();
+                services.AddSingleton<ICustomerRepository, FakeCustomerRepository>();
+                services.AddSingleton<Faker<Customer>, CustomerFaker>();
+
+                services.AddSingleton<ProductsView>();
+                services.AddSingleton<ProductsViewModel>();
+                services.AddSingleton<IProductRepository, FakeProductRepository>();
+                services.AddSingleton<Faker<Product>, ProductFaker>();
+
+                services.AddSingleton<HomeView>();
+
+                services.AddSingleton<DashboardView>();
+                services.AddSingleton<DashboardViewModel>();
+
+                services.AddSingleton<CounterView>();
+                services.AddSingleton<CounterViewModel>();
+
+                services.AddSingleton<MapCustomersView>();
+
+                services.AddSingleton<INavigationService, FrameNavigationService>();
             });
 
 

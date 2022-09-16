@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewModels;
 
 namespace WpfClient.Views
 {
@@ -20,9 +21,11 @@ namespace WpfClient.Views
     /// </summary>
     public partial class ProductsView : Page
     {
-        public ProductsView()
+        public ProductsView(ProductsViewModel viewModel)
         {
             InitializeComponent();
+
+            this.DataContext = viewModel;
         }
     }
 }

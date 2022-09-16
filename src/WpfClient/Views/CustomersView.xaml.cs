@@ -10,8 +10,10 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewModels;
 
 namespace WpfClient.Views
 {
@@ -20,9 +22,11 @@ namespace WpfClient.Views
     /// </summary>
     public partial class CustomersView : Page
     {
-        public CustomersView()
+        public CustomersView(CustomersViewModel viewModel)
         {
             InitializeComponent();
+
+            this.DataContext = viewModel;
         }
     }
 }

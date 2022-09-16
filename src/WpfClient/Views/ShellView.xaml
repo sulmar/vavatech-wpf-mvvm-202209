@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfClient.Views"
         xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
+        xmlns:v="clr-namespace:WpfClient.Views"
         xmlns:c="clr-namespace:WpfClient.Converters"
         mc:Ignorable="d"
         Title="ShellView" Height="750" Width="800">
@@ -172,8 +173,8 @@
                 DockPanel.Dock="Left">
 
                 <MenuItem Header="Home" 
-                          Command="{Binding ShowViewCommand}"
-                          CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Header}"
+                          Command="{Binding ShowPageCommand}"
+                          CommandParameter="{x:Type v:HomeView}"
                           Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource HomeImage}" />
@@ -181,8 +182,8 @@
                 </MenuItem>
 
                 <MenuItem Header="Dashboard"  Style="{StaticResource SideBarMenuItemStyle}"
-                          Command="{Binding ShowViewCommand}"
-                          CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Header}"
+                          Command="{Binding ShowPageCommand}"
+                          CommandParameter="{x:Type v:DashboardView}"
                           >
                     <MenuItem.Icon>
                         <Image Source="{StaticResource DashboardImage}" />
@@ -190,8 +191,8 @@
                 </MenuItem>
 
                 <MenuItem Header="Counter"  
-                          Command="{Binding ShowViewCommand}"
-                          CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Header}"
+                          Command="{Binding ShowPageCommand}"
+                          CommandParameter="{x:Type v:CounterView}"
                           Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource CounterImage}" />
@@ -199,8 +200,8 @@
                 </MenuItem>
 
                 <MenuItem Header="Products"  
-                          Command="{Binding ShowViewCommand}"
-                          CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Header}"
+                          Command="{Binding ShowPageCommand}"
+                          CommandParameter="{x:Type v:ProductsView}"
                           Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource ProductsImage}" />
@@ -208,8 +209,8 @@
                 </MenuItem>
 
                 <MenuItem Header="Customers"  
-                          Command="{Binding ShowViewCommand}"
-                          CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Header}"
+                          Command="{Binding ShowPageCommand}"
+                          CommandParameter="{x:Type v:CustomersView}"
                           Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource ProductsImage}" />
@@ -217,8 +218,8 @@
                 </MenuItem>
 
                 <MenuItem Header="MapCustomers"  
-                          Command="{Binding ShowViewCommand}"
-                          CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Header}"
+                          Command="{Binding ShowPageCommand}"
+                          CommandParameter="{x:Type v:MapCustomersView}"
                           Style="{StaticResource SideBarMenuItemStyle}">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource ProductsImage}" />
@@ -262,8 +263,9 @@
 
             <!-- Content -->
 
-            <Frame Source="{Binding SelectedView}"
+            <Frame 
                    NavigationUIVisibility="Hidden"
+                   Name="ContentFrame"
                    />
 
 

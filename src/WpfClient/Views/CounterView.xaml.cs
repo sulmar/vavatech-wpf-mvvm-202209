@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewModels;
 using vm = ViewModels;
 
 namespace WpfClient.Views
@@ -21,9 +22,11 @@ namespace WpfClient.Views
     /// </summary>
     public partial class CounterView : Page
     {
-        public CounterView()
+        public CounterView(CounterViewModel viewModel)
         {
             InitializeComponent();
+
+            this.DataContext = viewModel;
 
             /* 
               <Page.DataContext>
