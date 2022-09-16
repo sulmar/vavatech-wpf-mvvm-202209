@@ -98,7 +98,7 @@
             </TextBox>
 
             <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True}" d:Text="Smith" />
-            <TextBox Text="{Binding Phone, UpdateSourceTrigger=Prope    rtyChanged}" d:Text="555-123-321" />
+            <TextBox Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}" d:Text="555-123-321" />
 
 
             <TextBox Text="{Binding Height, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" d:Text="180" />
