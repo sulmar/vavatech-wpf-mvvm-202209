@@ -42,8 +42,6 @@ namespace ViewModels
             }
         }
 
-        public ICommand ShowViewCommand { get; private set; }
-
         public ICommand ShowPageCommand { get; private set; }
         
         private readonly INavigationService navigationService;
@@ -51,16 +49,13 @@ namespace ViewModels
         public ShellViewModel(INavigationService navigationService)
         {
             this.navigationService = navigationService;
-
-            ShowViewCommand = new DelegateCommand<string>(ShowView);
+            
             ShowPageCommand = new DelegateCommand<Type>(ShowPage);
-
-            ShowView("Home");
 
             IsConnected = false;
         }
 
-        private void ShowView(string viewName) => SelectedView = $"{viewName}View.xaml";
+        // private void ShowView(string viewName) => SelectedView = $"{viewName}View.xaml";
 
         private void ShowPage(Type viewType) => navigationService.Navigate(viewType);
 
