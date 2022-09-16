@@ -7,7 +7,7 @@
       xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
       xmlns:c="clr-namespace:WpfClient.Converters"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="750" d:DesignWidth="800"
       d:Background="White"
       Title="CustomersView"
       x:Name="Root"
@@ -48,7 +48,7 @@
             />
 
         <!-- Selected Detail -->
-        
+
         <StackPanel Grid.Column="1" Margin="15" DataContext="{Binding Selected}">
 
             <StackPanel.Resources>
@@ -83,7 +83,7 @@
                            VerticalAlignment="Center"                           
                            />
 
-               
+
 
             </StackPanel>
 
@@ -117,14 +117,55 @@
 
             <TextBox Text="{Binding TaxNumber}" d:Text="555-123-21-12" 
                      Style="{StaticResource VisibilityTextBoxStyle}" />
-            
+
 
 
             <TextBlock Text="{Binding SkillLevel}" d:Text="5" />
 
-            <Button Command="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=DataContext.SkillLevelUpCommand}">Skill Level Up</Button>
+            <StackPanel Orientation="Horizontal">
 
-            <Button Command="{Binding ElementName=Root, Path=DataContext.SkillLevelUpCommand}">Skill Level Up</Button>
+                <Button 
+                    Width="50"
+                    Height="50"
+                    Content="Up"
+                    Command="{Binding ElementName=Root, Path=DataContext.SkillLevelUpCommand}">
+
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border
+                            BorderThickness="1"
+                            BorderBrush="Black"
+                            CornerRadius="90" >
+
+                                <TextBlock Foreground="White">Up</TextBlock>
+
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="DarkSlateBlue" />
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Opacity" Value="0.7" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+
+
+                <Button
+                Content="Down"
+                Command="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=DataContext.SkillLevelUpCommand}">
+
+                </Button>
+
+
+            </StackPanel>
+
 
 
 
