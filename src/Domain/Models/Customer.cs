@@ -5,8 +5,8 @@ using System.Security.Principal;
 namespace Domain.Models
 {
 
-
-    public class Customer : BaseEntity, INotifyDataErrorInfo
+    
+    public class Customer : BaseEntity 
     {
         private string firstName;
         private string lastName;
@@ -136,45 +136,15 @@ namespace Domain.Models
             _ => SalaryKind.High
         };
 
-        #region INotifyDataErrorInfo
-
-        private readonly IDictionary<string, List<string>> errorsByPropertyName = new Dictionary<string, List<string>>();
-
-        public bool HasErrors => errorsByPropertyName.Any();
-
-        public IEnumerable GetErrors(string? propertyName)
-        {
-            return errorsByPropertyName.ContainsKey(propertyName) ? errorsByPropertyName[propertyName] : Enumerable.Empty<string>();
-        }
-
-        private void AddError(string propertyName, string error)
-        {
-            if (!errorsByPropertyName.ContainsKey(propertyName))            
-                errorsByPropertyName[propertyName] = new List<string>();
-
-            if (!errorsByPropertyName[propertyName].Contains(error))
-            {
-                errorsByPropertyName[propertyName].Add(error);
-
-                OnErrorsChanged(propertyName);
-                
-            }            
-        }
-
         private void ValidateHeight()
         {
-            if (Height < 100 || Height > 250 )
+            if (Height < 100 || Height > 250)
             {
                 AddError(nameof(Height), $"Wzrost musi być pomiędzy 100 a 250 cm");
             }
         }
 
-        private void OnErrorsChanged(string propertyName)
-        {
-            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
-        }
 
-        #endregion
     }
 
     public enum SalaryKind
