@@ -10,6 +10,10 @@
         <Setter Property="Template" Value="{StaticResource RoundedButtonTemplate}" />
     </Style>
 
+    <Style TargetType="TextBox">
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource ValidationErrorTemplate }"/>
+    </Style>
+
     <Style TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Center"  />
         <Setter Property="VerticalAlignment" Value="Center" />
