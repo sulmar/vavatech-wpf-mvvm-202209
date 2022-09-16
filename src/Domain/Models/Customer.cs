@@ -18,8 +18,6 @@ namespace Domain.Models
         private const int MinimumLength = 3;
         private const int MaximumLength = 20;
 
-        public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
-
         public string FirstName
         {
             get => firstName;
