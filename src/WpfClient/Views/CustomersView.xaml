@@ -123,43 +123,88 @@
             <TextBlock Text="{Binding SkillLevel}" d:Text="5" />
 
             <StackPanel Orientation="Horizontal">
+                
+                
+
+                <StackPanel.Resources>
+
+                    <Style TargetType="Button">
+                        <Setter Property="Width" Value="100" />
+                        <Setter Property="Height" Value="100" />
+                        <Setter Property="Margin" Value="5" />
+                    </Style>
+
+                    <ControlTemplate x:Key="MyButtonTemplate" TargetType="Button">
+                        <Border BorderBrush="White"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="1">
+                            <ContentPresenter 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+
+                    <ControlTemplate x:Key="RoundedButtonTemplate" TargetType="Button">
+                        <Border
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding Foreground}"
+                                CornerRadius="90" >
+
+                            <!--<TextBlock Foreground="White" Text="Hello"/>-->
+                            
+                            <!-- Content -->
+                            <ContentPresenter 
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="{TemplateBinding Background}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.7" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+
+                        </Border>
+                    </ControlTemplate>
+                    
+                </StackPanel.Resources>
+
+                <Button
+                    Background="DarkMagenta"
+                    Content="Up"
+                    Command="{Binding ElementName=Root, Path=DataContext.SkillLevelUpCommand}"
+                    Template="{StaticResource MyButtonTemplate}" />
+
+
 
                 <Button 
-                    Width="50"
-                    Height="50"
-                    Content="Up"
-                    Command="{Binding ElementName=Root, Path=DataContext.SkillLevelUpCommand}">
-
-                    <Button.Template>
-                        <ControlTemplate>
-                            <Border
-                            BorderThickness="1"
-                            BorderBrush="Black"
-                            CornerRadius="90" >
-
-                                <TextBlock Foreground="White">Up</TextBlock>
-
-                                <Border.Style>
-                                    <Style TargetType="Border">
-                                        <Setter Property="Background" Value="DarkSlateBlue" />
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Opacity" Value="0.7" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Border.Style>
-
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
+                    BorderThickness="5"                    
+                    Background="DarkOrange"
+                    Foreground="Black"
+                    Content="Down"
+                    Command="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=DataContext.SkillLevelUpCommand}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Template="{StaticResource RoundedButtonTemplate}"
+                    >
 
                 </Button>
 
+                <Button Background="DarkOliveGreen"                        
+                    Command="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=DataContext.SkillLevelUpCommand}"
+                    Template="{StaticResource RoundedButtonTemplate}"
+                        >
 
-                <Button
-                Content="Down"
-                Command="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=DataContext.SkillLevelUpCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="30" Source="{StaticResource CustomersImage}" />
+                            <TextBlock Foreground="White">Hello</TextBlock>
+                        </StackPanel>
+                    </Button.Content>
 
                 </Button>
 
