@@ -1,6 +1,7 @@
 ﻿using Domain.Models;
 using Domain.Repositories;
 using Infrastructure;
+using Infrastructure.Fakers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,9 +29,14 @@ namespace ViewModels
         public ICommand SkillLevelUpCommand { get; private set; }
 
         public CustomersViewModel()
-            : this(new FakeCustomerRepository())
+            : this(new FakeCustomerRepository(new CustomerFaker()))
         {
         }
+
+        //public CustomersViewModel()
+        //    : this(new DbCustomerRepository(new MyContext("server=local,database=mydb")))
+        //{
+        //}
 
         public CustomersViewModel(ICustomerRepository customerRepository)
         {

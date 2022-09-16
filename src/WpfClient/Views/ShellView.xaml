@@ -9,8 +9,13 @@
         mc:Ignorable="d"
         Title="ShellView" Height="750" Width="800">
 
-    <Window.Resources>
 
+    <!--<Window.DataContext>
+        <vm:ShellViewModel />
+    </Window.DataContext>-->
+    
+    <Window.Resources>
+        
         <!--<c:BooleanToStringConverter x:Key="BooleanToStringConverter" />-->
 
         <ResourceDictionary>
@@ -50,9 +55,6 @@
 
     </Window.Resources>
 
-    <Window.DataContext>
-        <vm:ShellViewModel />
-    </Window.DataContext>
     
     <Grid>
 
@@ -206,6 +208,15 @@
                 </MenuItem>
 
                 <MenuItem Header="Customers"  
+                          Command="{Binding ShowViewCommand}"
+                          CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Header}"
+                          Style="{StaticResource SideBarMenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource ProductsImage}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="MapCustomers"  
                           Command="{Binding ShowViewCommand}"
                           CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Header}"
                           Style="{StaticResource SideBarMenuItemStyle}">

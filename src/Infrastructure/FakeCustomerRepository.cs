@@ -9,11 +9,6 @@ namespace Infrastructure
     {
         private readonly ICollection<Customer> customers;
 
-        public FakeCustomerRepository()
-            : this(new CustomerFaker())
-        {
-        }
-        
         public FakeCustomerRepository(Faker<Customer> faker)
         {
             customers = faker.Generate(100);
