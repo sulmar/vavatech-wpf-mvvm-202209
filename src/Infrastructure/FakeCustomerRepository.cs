@@ -16,7 +16,14 @@ namespace Infrastructure
 
         public ICollection<Customer> Get()
         {
+            Thread.Sleep(TimeSpan.FromSeconds(5));
+
             return customers;
+        }
+
+        public Task<ICollection<Customer>> GetAsync()
+        {
+            return Task.Run(() => Get());
         }
     }
 

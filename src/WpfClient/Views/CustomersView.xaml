@@ -6,12 +6,22 @@
       xmlns:local="clr-namespace:WpfClient.Views"
       xmlns:vm="clr-namespace:ViewModels;assembly=ViewModels"
       xmlns:c="clr-namespace:WpfClient.Converters"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="800"
       d:Background="White"
       Title="CustomersView"
-      x:Name="Root"
+      x:Name="Root"           
       >
+
+    <!-- PM> Install-Package Microsoft.Xaml.Behaviors.Wpf -->
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
 
     <!--<Page.DataContext>
         <vm:CustomersViewModel />
@@ -38,16 +48,23 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="400" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <!-- List -->
-        <ListBox 
-            ItemsSource="{Binding Customers, Mode=OneTime}"
+
+        <Grid>
+        
+            <ListBox 
+            ItemsSource="{Binding Customers}"
             ItemTemplate="{StaticResource CustomerTemplate}"
             SelectedItem="{Binding Selected}"            
             />
+
+            <ProgressBar Style="{StaticResource BusyProgressBar}" />
+
+        </Grid>
 
         <!-- Selected Detail -->
 

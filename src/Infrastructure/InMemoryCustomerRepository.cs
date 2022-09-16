@@ -21,5 +21,10 @@ namespace Infrastructure
         {
             return customers;
         }
+
+        public Task<ICollection<Customer>> GetAsync()
+        {
+            return Task.FromResult(customers);
+        }
     }
 }

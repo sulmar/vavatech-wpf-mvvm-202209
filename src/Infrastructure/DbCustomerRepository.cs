@@ -34,5 +34,10 @@ namespace Infrastructure
         {
             return context.Customers.ToList();
         }
+
+        public Task<ICollection<Customer>> GetAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

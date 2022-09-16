@@ -10,7 +10,10 @@ namespace Domain.Repositories
 
     public interface ICustomerRepository : IEntityRepository<Customer>
     {
-        
+        Task<ICollection<Customer>> GetAsync();
+
+        //void SendEmail();
+        //Task SendEmailAsync(); 
     }
 
 
