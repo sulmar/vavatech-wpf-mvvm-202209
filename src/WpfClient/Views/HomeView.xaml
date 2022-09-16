@@ -33,10 +33,11 @@
                                       BlurRadius="20"
                         />
                 </Setter.Value>
-                
             </Setter>
         </Style>
-        
+
+       
+
     </Page.Resources>
 
     <Grid>
@@ -57,6 +58,7 @@
                             Style="{StaticResource ShadowPanelStyle}"
                             >
 
+                  
                     <Image 
                         Width="100"
                         HorizontalAlignment="Left"
