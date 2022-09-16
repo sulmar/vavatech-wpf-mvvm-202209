@@ -27,7 +27,7 @@ namespace ViewModels
         public ProductsViewModel()
             : this(new FakeProductRepository(new ProductFaker()))
         {
-
+            
         }
 
         private IProductRepository productRepository => (IProductRepository) entityRepository;
@@ -37,6 +37,8 @@ namespace ViewModels
             SearchCriteria = new ProductSearchCriteria();
 
             SearchCommand = new DelegateCommand(Search);
+
+            Entities = productRepository.Get();
         }
 
         private void Search()

@@ -25,6 +25,17 @@
             </CollectionViewSource.SortDescriptions>
             
         </CollectionViewSource>
+
+        <Style x:Key="ShadowPanelStyle" TargetType="Panel">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Opacity="0.7"
+                                      BlurRadius="20"
+                        />
+                </Setter.Value>
+                
+            </Setter>
+        </Style>
         
     </Page.Resources>
 
@@ -42,7 +53,9 @@
                 <StackPanel Width="300" 
                             Height="150"
                             Margin="20"
-                            Background="DarkSlateBlue">
+                            Background="DarkSlateBlue"
+                            Style="{StaticResource ShadowPanelStyle}"
+                            >
 
                     <Image 
                         Width="100"
@@ -60,11 +73,15 @@
                 <Grid Width="150" 
                             Height="150"
                             Margin="20"
-                            Background="Orange">
+                            Background="Orange"
+                            Style="{StaticResource ShadowPanelStyle}"
+                      >
 
                     <Image 
                         Width="100"                                                
-                        Source="{StaticResource HomeImage}" />
+                        Source="{StaticResource HomeImage}"
+                        
+/>
 
                 </Grid>
 
@@ -82,17 +99,9 @@
 
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
+                            <Grid Style="{StaticResource ShadowPanelStyle}">
                                 <Border Width="150" Height="150" Margin="5" Background="#3aa0ff" />
                                 <TextBlock Text="{Binding Name}" Foreground="White" />
-
-                                <Grid.Effect>
-                                    <DropShadowEffect Opacity="0.7"
-                                                  BlurRadius="20"
-                                                  />
-
-
-                                </Grid.Effect>
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
