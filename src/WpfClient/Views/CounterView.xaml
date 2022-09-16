@@ -29,7 +29,19 @@
             <TextBlock Style="{StaticResource Header1}">Counter</TextBlock>
             <TextBlock Name="CurrentCountTextBlock" Style="{StaticResource Paragraph}" Text="{Binding Path=CurrentCount, StringFormat='Current count: {0}'}" />
             <Label Content="{Binding CurrentCount}" />
-            <Button HorizontalAlignment="Left" Command="{Binding IncrementCountCommand}" >Click me</Button>
+            
+            <Button 
+                Width="70"
+                Height="70"
+                HorizontalAlignment="Left" 
+                    Command="{Binding IncrementCountCommand}" 
+                    Template="{StaticResource RoundedButtonTemplate}"
+                    >Click me</Button>
+
+
+            <Button />
+            <Button />
+            <Button />
 
         </StackPanel>
         
