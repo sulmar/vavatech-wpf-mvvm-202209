@@ -64,9 +64,10 @@
                         HorizontalAlignment="Left"
                         Source="{StaticResource CustomersImage}" />
 
-                    <TextBlock Text="Lorem ipsum"
+                    <TextBlock Text="Customers"
                                Foreground="White"
                                Margin="10"
+                               FontSize="18"
                                HorizontalAlignment="Left"
                                />
 
@@ -94,7 +95,7 @@
             
             <!-- Items Panel -->
 
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="15">
 
                 <ItemsControl 
                     ItemsSource="{Binding Source={StaticResource ProductsViewSource}}">
@@ -103,7 +104,12 @@
                         <DataTemplate>
                             <Grid Style="{StaticResource ShadowPanelStyle}">
                                 <Border Width="150" Height="150" Margin="5" Background="#3aa0ff" />
-                                <TextBlock Text="{Binding Name}" Foreground="White" />
+                                <TextBlock Text="{Binding Name}"                                            
+                                           Foreground="White" 
+                                           FontSize="16"
+                                           Padding="10"
+                                           Width="150"                                            
+                                           TextWrapping="Wrap" />
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
